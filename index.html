@@ -1,0 +1,132 @@
+‎<!DOCTYPE html>
+‎<html lang="ar" dir="rtl">
+‎<head>
+‎    <meta charset="UTF-8">
+‎    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+‎    <title>حاسبة النسب المئوية الذكية</title>
+‎    <style>
+‎        body {
+‎            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+‎            background-color: #f4f7f6;
+‎            margin: 0;
+‎            padding: 20px;
+‎            color: #333;
+‎        }
+‎        .container {
+‎            max-width: 400px;
+‎            margin: 0 auto;
+‎            background: #ffffff;
+‎            padding: 20px;
+‎            border-radius: 12px;
+‎            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+‎        }
+‎        h2 {
+‎            text-align: center;
+‎            color: #2c3e50;
+‎            margin-bottom: 20px;
+‎        }
+‎        .card {
+‎            background: #f9f9f9;
+‎            padding: 15px;
+‎            border-radius: 8px;
+‎            margin-bottom: 15px;
+‎            border: 1px solid #e1e1e1;
+‎        }
+‎        .card h3 {
+‎            font-size: 16px;
+‎            color: #34495e;
+‎            margin-top: 0;
+‎        }
+‎        input, button {
+‎            width: 100%;
+‎            padding: 10px;
+‎            margin-top: 8px;
+‎            margin-bottom: 8px;
+‎            border: 1px solid #ccc;
+‎            border-radius: 6px;
+‎            box-sizing: border-box;
+‎            font-size: 14px;
+‎        }
+‎        button {
+‎            background-color: #3498db;
+‎            color: white;
+‎            border: none;
+‎            font-weight: bold;
+‎            cursor: pointer;
+‎            transition: background 0.3s;
+‎        }
+‎        button:hover {
+‎            background-color: #2980b9;
+‎        }
+‎        .result {
+‎            font-weight: bold;
+‎            color: #27ae60;
+‎            margin-top: 5px;
+‎            text-align: center;
+‎        }
+‎        .ad-banner {
+‎            background: #eaeaea;
+‎            text-align: center;
+‎            padding: 10px;
+‎            font-size: 12px;
+‎            color: #777;
+‎            border-radius: 6px;
+‎            margin: 15px 0;
+‎        }
+‎    </style>
+‎</head>
+‎<body>
+‎
+‎    <div class="container">
+‎        <h2>حاسبة النسب المئوية الذكية</h2>
+‎
+‎        <!-- القسم الأول: حساب نسبة من عدد -->
+‎        <div class="card">
+‎            <h3>حساب نسبة من عدد</h3>
+‎            <input type="number" id="num1" placeholder="أدخل العدد (مثال: 200)">
+‎            <input type="number" id="per1" placeholder="أدخل النسبة المئوية (مثال: 15)">
+‎            <button onclick="calculatePercentage()">احسب</button>
+‎            <div class="result" id="result1">النتيجة: --</div>
+‎        </div>
+‎
+‎        <!-- القسم الثاني: معرفة ما هي نسبة عدد من عدد آخر -->
+‎        <div class="card">
+‎            <h3>ما هي نسبة عدد من عدد آخر؟</h3>
+‎            <input type="number" id="part2" placeholder="الجزء (مثال: 50)">
+‎            <input type="number" id="total2" placeholder="الكل (مثال: 200)">
+‎            <button onclick="calculateRatio()">احسب النسبة</button>
+‎            <div class="result" id="result2">النتيجة: --</div>
+‎        </div>
+‎
+‎        <div class="ad-banner">
+‎            تطبيق حاسبة النسب المئوية - تصميم وتطوير ملاك
+‎        </div>
+‎    </div>
+‎
+‎    <script>
+‎        function calculatePercentage() {
+‎            let num = parseFloat(document.getElementById('num1').value);
+‎            let per = parseFloat(document.getElementById('per1').value);
+‎            if (isNaN(num) || isNaN(per)) {
+‎                document.getElementById('result1').innerText = "الرجاء إدخال أرقام صحيحة";
+‎                return;
+‎            }
+‎            let res = (num * per) / 100;
+‎            document.getElementById('result1').innerText = "النتيجة: " + res;
+‎        }
+‎
+‎        function calculateRatio() {
+‎            let part = parseFloat(document.getElementById('part2').value);
+‎            let total = parseFloat(document.getElementById('total2').value);
+‎            if (isNaN(part) || isNaN(total) || total === 0) {
+‎                document.getElementById('result2').innerText = "الرجاء إدخال أرقام صحيحة";
+‎                return;
+‎            }
+‎            let res = (part / total) * 100;
+‎            document.getElementById('result2').innerText = "النتيجة: " + res.toFixed(2) + "%";
+‎        }
+‎    </script>
+‎
+‎</body>
+‎</html>
+‎
